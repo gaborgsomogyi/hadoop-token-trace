@@ -20,7 +20,7 @@ java -jar target/hadoop-token-trace-1.0-SNAPSHOT-jar-with-dependencies.jar
 ### Trace the app
 ```
 $ cat src/main/resources/actions.txt 
-trace_param_call_retval org.apache.hadoop.fs.FileSystem addDelegationTokens param_index:1,method_to_call:getAllTokens
+trace_args_with_method_call org.apache.hadoop.fs.FileSystem addDelegationTokens param_index:1,method_to_call:getAllTokens
 ...
 $ java -javaagent:/Users/gaborsomogyi/trace-agent/target/trace-agent-1.0-SNAPSHOT.jar -jar target/hadoop-token-trace-1.0-SNAPSHOT-jar-with-dependencies.jar 
 TraceAgent is initializing
@@ -33,7 +33,7 @@ log4j:WARN No appenders could be found for logger (org.apache.htrace.core.Tracer
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
 Hadoop FS obtained: file:///
-TraceAgent (trace_param_call_retval): public default org.apache.hadoop.security.token.Token[] org.apache.hadoop.security.token.DelegationTokenIssuer.addDelegationTokens(java.lang.String,org.apache.hadoop.security.Credentials) throws java.io.IOException parameter instance with index 1 method call "getAllTokens" returns with 
+TraceAgent (trace_args_with_method_call): public default org.apache.hadoop.security.token.Token[] org.apache.hadoop.security.token.DelegationTokenIssuer.addDelegationTokens(java.lang.String,org.apache.hadoop.security.Credentials) throws java.io.IOException parameter instance with index 1 method call "getAllTokens" returns with 
 [Kind: testKind, Service: testService, Ident: 74 65 73 74 49 64 65 6e 74 69 66 69 65 72]
 Tokens added: [Kind: testKind, Service: testService, Ident: 74 65 73 74 49 64 65 6e 74 69 66 69 65 72]
 ```
